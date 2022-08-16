@@ -44,6 +44,8 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
+const addLeadingZero = value => String(value).padStart(2, 0);
+
 startBtn.addEventListener('click', onStartBtnClick);
 
 function onStartBtnClick() {
@@ -59,13 +61,12 @@ function counter() {
   const targetDate = new Date(input.value);
   if (targetDate.getTime() > new Date().getTime()) {
     const leftTime = convertMs(targetDate.getTime() - new Date().getTime());
-    console.log(timerSeconds.textContent);
-    timerDays.textContent = leftTime.days;
-    timerHours.textContent = leftTime.hours;
-    timerMinutes.textContent = leftTime.minutes;
-    timerSeconds.textContent = leftTime.seconds;
+
+    timerDays.textContent = addLeadingZero(leftTime.days);
+    timerHours.textContent = addLeadingZero(leftTime.hours);
+    timerMinutes.textContent = addLeadingZero(leftTime.minutes);
+    timerSeconds.textContent = addLeadingZero(leftTime.seconds);
   } else {
     clearInterval(interval);
-    alert('Error: Please enter future date!');
   }
 }
