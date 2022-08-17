@@ -14,25 +14,17 @@ disabledStopBtn();
 startBtn.addEventListener('click', bgChange);
 
 function bgChange() {
-  try {
-    timer = setInterval(() => {
-      document.body.style.backgroundColor = `${getRandomHexColor()}`;
-    }, 1000);
-    startBtn.disabled = true;
-    stopBtn.disabled = false;
-  } catch {
-    alert('Error: Background color change has broken');
-  }
+  timer = setInterval(() => {
+    document.body.style.backgroundColor = `${getRandomHexColor()}`;
+  }, 1000);
+  startBtn.disabled = true;
+  stopBtn.disabled = false;
 }
 
 stopBtn.addEventListener('click', stopBgChange);
 
 function stopBgChange() {
-  try {
-    clearInterval(timer);
-    startBtn.disabled = false;
-    stopBtn.disabled = true;
-  } catch {
-    alert('Error: First press "START"');
-  }
+  clearInterval(timer);
+  startBtn.disabled = false;
+  stopBtn.disabled = true;
 }
