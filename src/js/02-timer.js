@@ -44,16 +44,14 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-const addLeadingZero = value => String(value).padStart(2, 0);
+function addLeadingZero(value) {
+  return `${value}`.padStart(2, 0);
+}
 
 startBtn.addEventListener('click', onStartBtnClick);
 
 function onStartBtnClick() {
-  try {
-    intervalEl = setInterval(counter, 1000);
-  } catch {
-    alert('Error: Counter failed');
-  }
+  interval = setInterval(counter, 1000);
 }
 
 function counter() {
@@ -67,6 +65,6 @@ function counter() {
     timerMinutes.textContent = addLeadingZero(leftTime.minutes);
     timerSeconds.textContent = addLeadingZero(leftTime.seconds);
   } else {
-    clearInterval(intervalEl);
+    clearInterval(interval);
   }
 }

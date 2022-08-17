@@ -16,7 +16,7 @@ startBtn.addEventListener('click', bgChange);
 function bgChange() {
   try {
     timer = setInterval(() => {
-      headHTML.innerHTML = `<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Color switcher</title><link rel="stylesheet" href="css/common.css" /><style>body{background-color: ${getRandomHexColor()};}</style></head>`;
+      document.body.style.backgroundColor = `${getRandomHexColor()}`;
     }, 1000);
     startBtn.disabled = true;
     stopBtn.disabled = false;
