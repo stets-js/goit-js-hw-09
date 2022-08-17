@@ -50,7 +50,7 @@ startBtn.addEventListener('click', onStartBtnClick);
 
 function onStartBtnClick() {
   try {
-    interval = setInterval(counter, 1000);
+    intervalEl = setInterval(counter, 1000);
   } catch {
     alert('Error: Counter failed');
   }
@@ -67,6 +67,6 @@ function counter() {
     timerMinutes.textContent = addLeadingZero(leftTime.minutes);
     timerSeconds.textContent = addLeadingZero(leftTime.seconds);
   } else {
-    clearInterval(interval);
+    clearInterval(intervalEl);
   }
 }
