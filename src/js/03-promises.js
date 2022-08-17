@@ -26,8 +26,8 @@ function submit(e) {
   e.preventDefault();
 
   let waitDelay = Number(firstDelay.value);
-  let num = Number(amount.value);
-  let waitStep = Number(stepDelay.value);
+  const num = Number(amount.value);
+  const waitStep = Number(stepDelay.value);
 
   for (let i = 1; i <= num; i++) {
     createPromise(i, waitDelay)

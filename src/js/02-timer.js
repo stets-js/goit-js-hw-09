@@ -44,9 +44,7 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-function addLeadingZero(value) {
-  return `${value}`.padStart(2, 0);
-}
+const addLeadingZero = value => `${value}`.padStart(2, 0);
 
 startBtn.addEventListener('click', onStartBtnClick);
 
@@ -56,14 +54,17 @@ function onStartBtnClick() {
 
 function counter() {
   startBtn.setAttribute('disabled', true);
-  const targetDate = new Date(input.value);
-  if (targetDate.getTime() > new Date().getTime()) {
-    const leftTime = convertMs(targetDate.getTime() - new Date().getTime());
+  const targetDate = new Date(input.value).getTime();
+  const currentTime = new Date().getTime();
+  if (targetDate > currentTime) {
+    const { days, hours, minutes, seconds } = convertMs(
+      targetDate - currentTime
+    );
 
-    timerDays.textContent = addLeadingZero(leftTime.days);
-    timerHours.textContent = addLeadingZero(leftTime.hours);
-    timerMinutes.textContent = addLeadingZero(leftTime.minutes);
-    timerSeconds.textContent = addLeadingZero(leftTime.seconds);
+    timerDays.textContent = addLeadingZero(days);
+    timerHours.textContent = addLeadingZero(hours);
+    timerMinutes.textContent = addLeadingZero(minutes);
+    timerSeconds.textContent = addLeadingZero(seconds);
   } else {
     clearInterval(onStartBtnClick);
   }
