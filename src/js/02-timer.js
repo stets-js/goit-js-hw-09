@@ -51,7 +51,7 @@ function addLeadingZero(value) {
 startBtn.addEventListener('click', onStartBtnClick);
 
 function onStartBtnClick() {
-  interval = setInterval(counter, 1000);
+  setInterval(counter, 1000);
 }
 
 function counter() {
@@ -65,6 +65,6 @@ function counter() {
     timerMinutes.textContent = addLeadingZero(leftTime.minutes);
     timerSeconds.textContent = addLeadingZero(leftTime.seconds);
   } else {
-    clearInterval(interval);
+    clearInterval(onStartBtnClick);
   }
 }
