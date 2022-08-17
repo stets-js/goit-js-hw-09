@@ -14,12 +14,11 @@ disabledStopBtn();
 startBtn.addEventListener('click', bgChange);
 
 function bgChange() {
-  int = setInterval(() => {
-    document.body.style.backgroundColor = `${getRandomHexColor()}`;
-  }, 1000);
+  document.body.style.backgroundColor = `${getRandomHexColor()}`;
   startBtn.disabled = true;
   stopBtn.disabled = false;
 }
+let int = setInterval(bgChange, 1000);
 
 stopBtn.addEventListener('click', stopBgChange);
 
