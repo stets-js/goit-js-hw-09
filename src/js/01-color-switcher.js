@@ -16,7 +16,6 @@ function bgChange() {
   timer = setInterval(() => {
     document.body.style.backgroundColor = `${getRandomHexColor()}`;
   }, 1000);
-  // startBtn.disabled = true;
   disabledStopBtn(startBtn);
   stopBtn.disabled = false;
 }
@@ -26,6 +25,5 @@ stopBtn.addEventListener('click', stopBgChange);
 function stopBgChange() {
   clearInterval(timer);
   startBtn.disabled = false;
-  // stopBtn.disabled = true;
   disabledStopBtn(stopBtn);
 }
