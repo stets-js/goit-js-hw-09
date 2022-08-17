@@ -12,6 +12,7 @@ function disabledStopBtn() {
 disabledStopBtn();
 
 startBtn.addEventListener('click', bgChange);
+let timer;
 
 function bgChange() {
   timer = setInterval(() => {
